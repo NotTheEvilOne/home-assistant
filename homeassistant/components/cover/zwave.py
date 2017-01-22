@@ -123,7 +123,7 @@ class ZwaveRollershutter(zwave.ZWaveDeviceEntity, CoverDevice):
                'Open' or value.command_class == \
                zwave.const.COMMAND_CLASS_SWITCH_MULTILEVEL and value.label == \
                'Up':
-                self._lozwmgr.pressButton(value.value_id)
+                zwave.NETWORK._manager.pressButton(value.value_id)
                 break
 
     def close_cover(self, **kwargs):
@@ -135,7 +135,7 @@ class ZwaveRollershutter(zwave.ZWaveDeviceEntity, CoverDevice):
                'Down' or value.command_class == \
                zwave.const.COMMAND_CLASS_SWITCH_MULTILEVEL and value.label == \
                'Close':
-                self._lozwmgr.pressButton(value.value_id)
+                zwave.NETWORK._manager.pressButton(value.value_id)
                 break
 
     def set_cover_position(self, position, **kwargs):
@@ -151,7 +151,7 @@ class ZwaveRollershutter(zwave.ZWaveDeviceEntity, CoverDevice):
                'Open' or value.command_class == \
                zwave.const.COMMAND_CLASS_SWITCH_MULTILEVEL and value.label == \
                'Down':
-                self._lozwmgr.releaseButton(value.value_id)
+                zwave.NETWORK._manager.releaseButton(value.value_id)
                 break
 
 
